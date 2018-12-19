@@ -18,12 +18,12 @@ export default {
   data() {
     return {
       message: "Kiss Counter",
-      kisses: Array(102).fill("😘")
+      kisses: Array.from({length: 40}, () => Math.random()>0.5? "😘":"😛");
     };
   },
   methods: {
     resetKisses() {
-      this.kisses = Array(102).fill("😘");
+      this.kisses =  Array.from({length: 40}, () => Math.random()>0.5? "😘":"😛");
     },
     setKissedToTrue(index) {
       this.$set(this.kisses, index, "❌");
