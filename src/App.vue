@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       message: "Kiss Counter",
-      kisses: Array.from({length: 40}, () => Math.random()>0.5? "😘":"😛");
+      kisses: Array.from({length: 40}, () => Math.random()>0.5? "😘":"😛"),
     };
   },
   methods: {
