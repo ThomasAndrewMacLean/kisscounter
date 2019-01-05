@@ -19,7 +19,9 @@ export default {
   data() {
     return {
       message: "Kiss Counter",
-      kisses: Array.from({ length }, () => (Math.random() > 0.5 ? "😘" : "😛"))
+      kisses:
+        JSON.parse(localStorage.getItem("kisses")) ||
+        Array.from({ length }, () => (Math.random() > 0.5 ? "😘" : "😛"))
     };
   },
   methods: {
@@ -30,6 +32,7 @@ export default {
     },
     setKissedToTrue(index) {
       this.$set(this.kisses, index, "❌");
+      localStorage.setItem("kisses", JSON.stringify(this.kisses));
     }
   }
 };
