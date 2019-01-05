@@ -29,6 +29,7 @@ export default {
       this.kisses = Array.from({ length }, () =>
         Math.random() > 0.5 ? "😘" : "😛"
       );
+      localStorage.setItem("kisses", JSON.stringify(this.kisses));
     },
     setKissedToTrue(index) {
       this.$set(this.kisses, index, "❌");
