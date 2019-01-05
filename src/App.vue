@@ -8,22 +8,25 @@
     </span>
 
     <br>
-    <button @click="resetKisses">Reset</button>
+    <button v-if="!kisses.includes('😘') && !kisses.includes('😛')" @click="resetKisses">Reset</button>
   </div>
 </template>
 
 <script>
+let length = 25;
 export default {
   name: "App",
   data() {
     return {
       message: "Kiss Counter",
-      kisses: Array.from({length: 102}, () => Math.random()>0.5? "😘":"😛"),
+      kisses: Array.from({ length }, () => (Math.random() > 0.5 ? "😘" : "😛"))
     };
   },
   methods: {
     resetKisses() {
-      this.kisses =  Array.from({length: 102}, () => Math.random()>0.5? "😘":"😛");
+      this.kisses = Array.from({ length }, () =>
+        Math.random() > 0.5 ? "😘" : "😛"
+      );
     },
     setKissedToTrue(index) {
       this.$set(this.kisses, index, "❌");
